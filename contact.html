@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Contact Thornwood Bakery - find our two Johannesburg locations, trading hours, and send us a message."
+    />
+    <title>Contact | Thornwood Bakery</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🍞</span> Thornwood Bakery
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          &#9776;
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="enquiry.html" class="nav-link">Enquiry</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="page-banner">
+        <div class="container">
+          <h1>Contact Us</h1>
+          <p>Find us, call us, or drop us a message - we would love to hear from you.</p>
+        </div>
+      </section>
+
+      <section class="section-padding">
+        <div class="container">
+          <h2 class="section-title">Our Locations</h2>
+          <p class="section-subtitle">
+            Thornwood Bakery operates from two locations across Johannesburg.
+          </p>
+
+          <div class="locations-grid">
+
+            <article class="location-card">
+              <h3>📍 Melville (Main Store)</h3>
+              <address>
+                7th Street, Melville<br />
+                Johannesburg, 2092<br />
+                <br />
+                <strong>Phone:</strong> <a href="tel:+27115551234">011 555 1234</a><br />
+                <strong>Email:</strong> <a href="mailto:melville@thornwoodbakery.co.za">melville@thornwoodbakery.co.za</a>
+              </address>
+
+              <div class="hours-table">
+                <h4>Trading Hours</h4>
+                <table>
+                  <tbody>
+                    <tr><td>Monday - Friday</td><td>07:00 - 17:00</td></tr>
+                    <tr><td>Saturday</td><td>07:00 - 14:00</td></tr>
+                    <tr><td>Sunday</td><td>Closed</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="map-placeholder">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.634!2d27.9950!3d-26.1752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDEwJzMwLjciUyAyN8KwNTknNDIuMSJF!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
+                  width="100%"
+                  height="250"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Thornwood Bakery Melville Location Map"
+                ></iframe>
+              </div>
+            </article>
+
+            <article class="location-card">
+              <h3>📍 Greenside (Second Store)</h3>
+              <address>
+                Greenway Road, Greenside<br />
+                Johannesburg, 2193<br />
+                <br />
+                <strong>Phone:</strong> <a href="tel:+27115559876">011 555 9876</a><br />
+                <strong>Email:</strong> <a href="mailto:greenside@thornwoodbakery.co.za">greenside@thornwoodbakery.co.za</a>
+              </address>
+
+              <div class="hours-table">
+                <h4>Trading Hours</h4>
+                <table>
+                  <tbody>
+                    <tr><td>Monday - Friday</td><td>07:30 - 16:30</td></tr>
+                    <tr><td>Saturday</td><td>08:00 - 13:00</td></tr>
+                    <tr><td>Sunday</td><td>Closed</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="map-placeholder">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.000!2d28.0100!3d-26.1500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA5JzAwLjAiUyAyOMKwMDAnMzYuMCJF!5e0!3m2!1sen!2sza!4v1700000000001!5m2!1sen!2sza"
+                  width="100%"
+                  height="250"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Thornwood Bakery Greenside Location Map"
+                ></iframe>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding bg-light">
+        <div class="container form-container">
+          <h2 class="section-title">Send Us a Message</h2>
+          <p class="section-subtitle">
+            For general questions, feedback, or wholesale enquiries, use the form below.
+            For custom cake orders please use the <a href="enquiry.html">Enquiry page</a>.
+          </p>
+
+          <form id="contactForm" class="bakery-form" novalidate>
+
+            <div class="form-group">
+              <label for="contactName">Full Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="contactName"
+                name="contactName"
+                placeholder="e.g. Nomsa Khumalo"
+                required
+              />
+              <span class="error-msg" id="contactNameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">Email Address <span class="required">*</span></label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="contactEmail"
+                placeholder="e.g. nomsa@email.com"
+                required
+              />
+              <span class="error-msg" id="contactEmailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject <span class="required">*</span></label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="e.g. Wholesale bread supply question"
+                required
+              />
+              <span class="error-msg" id="subjectError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredLocation">Nearest Location</label>
+              <select id="preferredLocation" name="preferredLocation">
+                <option value="">-- Please select --</option>
+                <option value="melville">Melville (Main Store)</option>
+                <option value="greenside">Greenside (Second Store)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message <span class="required">*</span></label>
+              <textarea
+                id="contactMessage"
+                name="contactMessage"
+                rows="5"
+                placeholder="How can we help you?"
+                required
+              ></textarea>
+              <span class="error-msg" id="contactMessageError"></span>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            </div>
+
+            <div id="contactSuccess" class="form-success hidden">
+              <p>✅ Thank you for your message! We will get back to you within 1-2 business days.</p>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <p class="logo">🍞 Thornwood Bakery</p>
+          <p>Handcrafted in Melville, Johannesburg since 2015.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="enquiry.html">Enquiry</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-hours">
+          <h4>Trading Hours</h4>
+          <p>Mon - Fri: 07:00 - 17:00</p>
+          <p>Saturday: 07:00 - 14:00</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Thornwood Bakery. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
