@@ -76,6 +76,53 @@
         </div>
       </section>
 
+      <section class="section-padding">
+        <div class="container">
+          <h2 class="section-title">Inside the Bakery</h2>
+          <p class="section-subtitle">
+            A look at what comes out of our Melville kitchen every morning. Select any picture to view it larger.
+          </p>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <a href="images/sourdough-loaves-cooling-on-rack.svg" class="gallery-link" data-caption="Sourdough loaves cooling after the first bake of the day">
+                <img src="images/sourdough-loaves-cooling-on-rack.svg" alt="Freshly baked sourdough loaves cooling on a rack" width="800" height="600" loading="lazy" />
+              </a>
+              <figcaption>Sourdough, baked fresh daily</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <a href="images/butter-croissants-fresh-from-the-oven.svg" class="gallery-link" data-caption="Butter croissants straight from the oven">
+                <img src="images/butter-croissants-fresh-from-the-oven.svg" alt="Golden butter croissants arranged on a baking tray" width="800" height="600" loading="lazy" />
+              </a>
+              <figcaption>Hand-laminated butter croissants</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <a href="images/custom-birthday-cake-with-candles.svg" class="gallery-link" data-caption="A custom birthday cake ready for collection">
+                <img src="images/custom-birthday-cake-with-candles.svg" alt="Pink custom birthday cake with white icing and candles" width="800" height="600" loading="lazy" />
+              </a>
+              <figcaption>Custom birthday cakes</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <a href="images/tiered-wedding-cake-floral-decoration.svg" class="gallery-link" data-caption="A three tier wedding cake with a floral finish">
+                <img src="images/tiered-wedding-cake-floral-decoration.svg" alt="Three tier wedding cake decorated with pink flowers" width="800" height="600" loading="lazy" />
+              </a>
+              <figcaption>Wedding cakes for your big day</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <a href="images/thornwood-bakery-shopfront-melville.svg" class="gallery-link" data-caption="The Thornwood Bakery shopfront on 7th Street, Melville">
+                <img src="images/thornwood-bakery-shopfront-melville.svg" alt="Thornwood Bakery shopfront on 7th Street in Melville" width="800" height="600" loading="lazy" />
+              </a>
+              <figcaption>Our shopfront in Melville</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <a href="images/pastry-counter-display-case.svg" class="gallery-link" data-caption="The pastry counter at Thornwood Bakery">
+                <img src="images/pastry-counter-display-case.svg" alt="Glass display counter filled with pastries and treats" width="800" height="600" loading="lazy" />
+              </a>
+              <figcaption>The pastry counter</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section class="mission-section section-padding bg-light">
         <div class="container">
           <div class="mission-grid">
@@ -185,10 +232,12 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 Thornwood Bakery. All rights reserved.</p>
+        <p>&copy; <span id="currentYear">2026</span> Thornwood Bakery. All rights reserved.</p>
       </div>
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/interactive.js" defer></script>
   </body>
 </html>
