@@ -1,0 +1,196 @@
+[
+  {
+    "id": "classic-sourdough-loaf",
+    "name": "Classic Sourdough Loaf",
+    "category": "breads",
+    "price": 55,
+    "priceLabel": "From R55",
+    "icon": "🍞",
+    "description": "Our signature 48-hour fermented sourdough with a crisp golden crust and an open, chewy crumb.",
+    "details": "Slow fermented for 48 hours and baked in a deck oven. Best eaten within two days, and it freezes well sliced.",
+    "sizes": "700g and 1kg",
+    "availability": "Baked daily until sold out",
+    "allergens": [
+      "Gluten"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "seeded-rye-loaf",
+    "name": "Seeded Rye Loaf",
+    "category": "breads",
+    "price": 60,
+    "priceLabel": "From R60",
+    "icon": "🥖",
+    "description": "A dense, hearty rye bread packed with sunflower, pumpkin and sesame seeds.",
+    "details": "A moist rye loaf with a deep, tangy flavour. A favourite for open sandwiches, smoked fish and strong cheese.",
+    "sizes": "700g",
+    "availability": "Baked daily until sold out",
+    "allergens": [
+      "Gluten",
+      "Sesame"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "ciabatta-rolls",
+    "name": "Ciabatta Rolls (4-pack)",
+    "category": "breads",
+    "price": 45,
+    "priceLabel": "R45 per pack",
+    "icon": "🥐",
+    "description": "Light, airy ciabatta rolls with a thin crust, ideal for lunch rolls and bruschetta.",
+    "details": "Soft inside and crisp outside. Pack of four, perfect for sandwiches or to serve with soup.",
+    "sizes": "Pack of 4",
+    "availability": "Baked daily until sold out",
+    "allergens": [
+      "Gluten"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "whole-wheat-loaf",
+    "name": "Whole Wheat Loaf",
+    "category": "breads",
+    "price": 48,
+    "priceLabel": "From R48",
+    "icon": "🍞",
+    "description": "Stone-ground whole wheat loaf with a soft crumb and a mild nutty flavour.",
+    "details": "Made with stone-ground flour from local farms. Available sliced or unsliced.",
+    "sizes": "700g, sliced or unsliced",
+    "availability": "Baked daily until sold out",
+    "allergens": [
+      "Gluten"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "butter-croissant",
+    "name": "Butter Croissant",
+    "category": "pastries",
+    "price": 28,
+    "priceLabel": "R28 each",
+    "icon": "🥐",
+    "description": "Classic croissant made with real butter and three days of lamination. Flaky and golden.",
+    "details": "Laminated by hand over three days. Best eaten on the day it is baked, warmed for a few minutes if you can wait.",
+    "sizes": "Single",
+    "availability": "Baked fresh each morning",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "pain-au-chocolat",
+    "name": "Pain au Chocolat",
+    "category": "pastries",
+    "price": 32,
+    "priceLabel": "R32 each",
+    "icon": "🍫",
+    "description": "A croissant dough pocket with two generous fingers of Belgian dark chocolate.",
+    "details": "Baked until deeply caramelised so the chocolate stays soft in the middle.",
+    "sizes": "Single",
+    "availability": "Baked fresh each morning",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs",
+      "Soy"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "almond-danish",
+    "name": "Almond Danish",
+    "category": "pastries",
+    "price": 35,
+    "priceLabel": "R35 each",
+    "icon": "🧁",
+    "description": "Laminated pastry filled with almond frangipane and topped with flaked almonds and a light glaze.",
+    "details": "A buttery danish with a soft almond centre and a crisp, flaky edge.",
+    "sizes": "Single",
+    "availability": "Baked fresh each morning",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs",
+      "Nuts"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "lemon-tart",
+    "name": "Lemon Tart (slice)",
+    "category": "pastries",
+    "price": 40,
+    "priceLabel": "R40 per slice",
+    "icon": "🍰",
+    "description": "A buttery shortcrust shell filled with sharp, silky lemon curd and dusted with icing sugar.",
+    "details": "Sold by the slice in store. Whole tarts for gatherings can be ordered through the enquiry form.",
+    "sizes": "Slice",
+    "availability": "Available while stocks last",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ],
+    "enquiryType": "product-enquiry"
+  },
+  {
+    "id": "birthday-cake",
+    "name": "Birthday Cake",
+    "category": "cakes",
+    "price": 450,
+    "priceLabel": "From R450",
+    "icon": "🎂",
+    "description": "Round cakes in 6, 8 or 10 inch sizes in vanilla, chocolate, red velvet or carrot cake.",
+    "details": "Designed with you and baked to order. Choose your flavour, filling, colours and a message for the top.",
+    "sizes": "6, 8 and 10 inch round",
+    "availability": "Order at least 5 business days ahead",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ],
+    "enquiryType": "birthday-cake"
+  },
+  {
+    "id": "wedding-cake",
+    "name": "Wedding Cake",
+    "category": "cakes",
+    "price": 1800,
+    "priceLabel": "From R1 800",
+    "icon": "💍",
+    "description": "Multi-tier wedding cakes with floral decoration, fondant finishes or semi-naked buttercream.",
+    "details": "Every wedding cake starts with a tasting and consultation so we can match your colours, theme and guest numbers.",
+    "sizes": "2 to 4 tiers",
+    "availability": "Order at least 14 days ahead",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs",
+      "Nuts"
+    ],
+    "enquiryType": "wedding-cake"
+  },
+  {
+    "id": "baby-shower-cake",
+    "name": "Baby Shower Cake",
+    "category": "cakes",
+    "price": 550,
+    "priceLabel": "From R550",
+    "icon": "🍼",
+    "description": "Elegant, gender-reveal-ready cakes with pastel decoration and a surprise coloured sponge inside.",
+    "details": "Fully customisable, from soft pastels to bold colours, with toppers made to match your party theme.",
+    "sizes": "8 and 10 inch round",
+    "availability": "Order at least 5 business days ahead",
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ],
+    "enquiryType": "baby-shower-cake"
+  }
+]
