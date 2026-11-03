@@ -1,0 +1,20 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://code.jquery.com https://unpkg.com; style-src 'self' https://unpkg.com; img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+
+/css/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/js/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/images/*
+  Cache-Control: public, max-age=2592000
+
+/data/*
+  Cache-Control: public, max-age=3600
