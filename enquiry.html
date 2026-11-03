@@ -58,7 +58,11 @@
             </p>
           </div>
 
-          <form id="enquiryForm" class="bakery-form" novalidate>
+          <form id="enquiryForm" class="bakery-form" name="enquiry" action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="enquiry" />
+            <p class="hp-field" aria-hidden="true">
+              <label>Leave this field empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
 
             <fieldset>
               <legend>Your Details</legend>
@@ -68,7 +72,7 @@
                 <input
                   type="text"
                   id="fullName"
-                  name="fullName"
+                  name="fullName" autocomplete="name" minlength="2" maxlength="60"
                   placeholder="e.g. Thabo Nkosi"
                   required
                 />
@@ -80,7 +84,7 @@
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="email" autocomplete="email" maxlength="100"
                   placeholder="e.g. thabo@email.com"
                   required
                 />
@@ -92,7 +96,7 @@
                 <input
                   type="tel"
                   id="phone"
-                  name="phone"
+                  name="phone" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+ ()\-]{10,20}"
                   placeholder="e.g. 071 234 5678"
                   required
                 />
@@ -144,16 +148,17 @@
                 <input
                   type="text"
                   id="budget"
-                  name="budget"
+                  name="budget" inputmode="numeric" maxlength="12"
                   placeholder="e.g. R600"
                 />
+                <span class="error-msg" id="budgetError"></span>
               </div>
 
               <div class="form-group">
                 <label for="message">Describe Your Order / Enquiry <span class="required">*</span></label>
                 <textarea
                   id="message"
-                  name="message"
+                  name="message" minlength="10" maxlength="1000"
                   rows="6"
                   placeholder="Please include any flavour preferences, colour themes, dietary requirements, or design ideas."
                   required
@@ -178,9 +183,9 @@
               <button type="submit" class="btn btn-primary btn-full">Submit Enquiry</button>
             </div>
 
-            <div id="formSuccess" class="form-success hidden">
-              <p>✅ Thank you! Your enquiry has been received. We will be in touch within 24 hours.</p>
-            </div>
+            <div id="formError" class="form-error hidden" role="alert"></div>
+
+            <div id="formSuccess" class="form-result hidden" tabindex="-1" aria-live="polite"></div>
 
           </form>
         </div>
