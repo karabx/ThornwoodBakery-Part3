@@ -1,4 +1,5 @@
 $(function () {
+  // Only runs on the products page
   const $grid = $("#productGrid");
   if (!$grid.length) return;
 
@@ -8,9 +9,11 @@ $(function () {
   const $count = $("#resultsCount");
   const $message = $("#productMessage");
 
+  // state holds the loaded products and the current filters, so render() always knows what to show
   const state = { products: [], category: "all", query: "", sort: "featured" };
   const categoryNames = { breads: "Artisan Breads", pastries: "Pastries & Treats", cakes: "Custom Cakes" };
 
+  // Loads the product list from products.json with AJAX. If it fails, a message with a retry button is shown
   function loadProducts() {
     $message.prop("hidden", true);
     $grid.attr("aria-busy", "true");
@@ -28,6 +31,7 @@ $(function () {
       });
   }
 
+  // Shows a status message (an error or no results) with an optional button
   function showMessage(text, buttonText, handler) {
     $message.empty().append($("<p>").text(text));
     if (buttonText) {
@@ -36,6 +40,7 @@ $(function () {
     $message.prop("hidden", false);
   }
 
+  // Adds the number of products to each tab label
   function updateTabCounts() {
     $tabs.each(function () {
       const $tab = $(this);
@@ -47,6 +52,7 @@ $(function () {
     });
   }
 
+  // A product matches when every word typed in the search box appears in its name, description, category or allergens
   function matchesQuery(product, words) {
     const haystack = [product.name, product.description, product.details, categoryNames[product.category], product.allergens.join(" ")]
       .join(" ")
@@ -56,6 +62,7 @@ $(function () {
     });
   }
 
+  // Applies the category and search filters, then sorts the result
   function getVisibleProducts() {
     const words = state.query.toLowerCase().split(/\s+/).filter(Boolean);
     const list = state.products.filter(function (product) {
@@ -79,6 +86,7 @@ $(function () {
     return list;
   }
 
+  // Builds one product card. .text() is used so product data can never be added as HTML
   function buildCard(product, index) {
     const $card = $("<article>", { class: "product-card card-enter", "data-id": product.id }).css("animation-delay", index * 50 + "ms");
     $("<div>", { class: "product-img-placeholder", "aria-hidden": "true" }).text(product.icon).appendTo($card);
@@ -92,6 +100,7 @@ $(function () {
     return $card;
   }
 
+  // Redraws the grid and updates the result count and the empty state
   function render() {
     const visible = getVisibleProducts();
     $grid.empty().attr("aria-busy", "false");
@@ -118,6 +127,7 @@ $(function () {
     }
   }
 
+  // Updates the selected tab (aria-selected and roving tabindex for keyboard users)
   function selectTab(category) {
     state.category = category;
     $tabs.each(function () {
@@ -132,6 +142,7 @@ $(function () {
     render();
   });
 
+  // Arrow keys, Home and End move between the tabs, as in the ARIA tabs pattern
   $tabs.on("keydown", function (event) {
     const index = $tabs.index(this);
     let next = null;
@@ -144,6 +155,7 @@ $(function () {
     $tabs.eq(next).trigger("focus").trigger("click");
   });
 
+  // The search waits 150ms after typing stops so the list is not redrawn on every key press
   let searchTimer = null;
   $search.on("input", function () {
     clearTimeout(searchTimer);
@@ -158,6 +170,7 @@ $(function () {
     render();
   });
 
+  // Product details modal: built once and filled in with the chosen product
   const $modal = $(
     '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>' +
       '<div class="modal-dialog">' +
@@ -178,6 +191,7 @@ $(function () {
 
   let opener = null;
 
+  // Fills the modal with the chosen product and opens it
   function openModal(productId, trigger) {
     const product = state.products.find(function (p) {
       return p.id === productId;
@@ -199,6 +213,7 @@ $(function () {
     $modal.find(".modal-close").trigger("focus");
   }
 
+  // Closes the modal and returns focus to the button that opened it
   function closeModal() {
     $modal.fadeOut(150, function () {
       $modal.prop("hidden", true);
@@ -216,6 +231,7 @@ $(function () {
   });
   $modal.on("click", ".modal-close", closeModal);
 
+  // Escape closes the modal and Tab is kept inside it (focus trap)
   $(document).on("keydown", function (event) {
     if ($modal.prop("hidden")) return;
     if (event.key === "Escape") {
@@ -235,5 +251,6 @@ $(function () {
     }
   });
 
+  // Start by loading the products
   loadProducts();
 });

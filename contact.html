@@ -4,12 +4,15 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO: unique title and meta description for this page -->
     <title>Contact Thornwood Bakery | Melville and Greenside</title>
     <meta name="description" content="Find Thornwood Bakery in Melville and Greenside, Johannesburg. See opening hours, get directions, call us or send us a message." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#C1603C" />
+    <!-- Canonical link: tells search engines the preferred address of this page -->
     <link rel="canonical" href="https://thornwoodbakery.netlify.app/contact.html" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%9E%3C/text%3E%3C/svg%3E" />
+    <!-- Open Graph and Twitter tags: control how the page looks when it is shared on social media -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Thornwood Bakery" />
     <meta property="og:locale" content="en_ZA" />
@@ -22,11 +25,15 @@
     <meta name="twitter:title" content="Contact Thornwood Bakery | Melville and Greenside" />
     <meta name="twitter:description" content="Find Thornwood Bakery in Melville and Greenside, Johannesburg. See opening hours, get directions, call us or send us a message." />
     <meta name="twitter:image" content="https://thornwoodbakery.netlify.app/images/thornwood-bakery-social-share.png" />
+    <!-- Preconnect starts the connection to these hosts early so the map loads faster -->
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
     <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin />
 
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Leaflet map styles, loaded with an integrity hash -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
+    <!-- Structured data (JSON-LD): helps search engines understand the business -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -150,16 +157,19 @@
   </head>
   <body>
 
+    <!-- HEADER AND NAVIGATION -->
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="logo">
           <span class="logo-icon">🍞</span> Thornwood Bakery
         </a>
 
+        <!-- Hamburger button, only visible on mobile (see scripts.js) -->
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           &#9776;
         </button>
 
+        <!-- Main navigation: the current page has the "active" class -->
         <nav class="main-nav" id="mainNav">
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link">Home</a></li>
@@ -172,10 +182,13 @@
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main>
 
+      <!-- PAGE BANNER -->
       <section class="page-banner">
         <div class="container">
+          <!-- Breadcrumbs: show visitors and search engines where this page sits -->
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li><a href="index.html">Home</a></li>
@@ -187,6 +200,7 @@
         </div>
       </section>
 
+      <!-- STORE LOCATIONS -->
       <section class="section-padding">
         <div class="container">
           <h2 class="section-title">Our Locations</h2>
@@ -217,6 +231,7 @@
                 </table>
               </div>
 
+              <!-- Buttons: show the store on the map or open directions -->
               <div class="location-actions">
                 <button type="button" class="btn btn-primary btn-small" data-location="melville">Show on map</button>
                 <a href="https://www.google.com/maps/dir/?api=1&amp;destination=-26.1772,28.0078" class="btn btn-outline btn-small" target="_blank" rel="noopener noreferrer">Get directions</a>
@@ -252,10 +267,12 @@
 
           </div>
 
+          <!-- Leaflet map: map.js adds the tiles and one marker for each store -->
           <div id="map" class="map-canvas" role="region" aria-label="Map showing the Thornwood Bakery stores in Melville and Greenside"></div>
         </div>
       </section>
 
+      <!-- CONTACT FORM: validated by forms.js, which builds an email for the visitor to send -->
       <section class="section-padding bg-light">
         <div class="container form-container">
           <h2 class="section-title">Send Us a Message</h2>
@@ -265,6 +282,7 @@
           </p>
 
           <form id="contactForm" class="bakery-form" name="contact" action="mailto:melville@thornwoodbakery.co.za" method="post" enctype="text/plain" novalidate>
+            <!-- Honeypot field for spam bots. People never see it -->
             <p class="hp-field" aria-hidden="true">
               <label>Leave this field empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
             </p>
@@ -358,6 +376,7 @@
               <button type="submit" class="btn btn-primary btn-full">Send Message</button>
             </div>
 
+            <!-- Email preview, filled in by forms.js once the form is valid -->
             <div id="contactSuccess" class="form-result hidden" tabindex="-1" aria-live="polite"></div>
 
           </form>
@@ -366,11 +385,13 @@
 
     </main>
 
+    <!-- FOOTER: quick links, trading hours and social links -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-brand">
           <p class="logo">🍞 Thornwood Bakery</p>
           <p>Handcrafted in Melville, Johannesburg since 2015.</p>
+        <!-- Social media links -->
         <ul class="social-links" aria-label="Thornwood Bakery on social media">
             <li><a href="https://www.instagram.com/thornwoodbakery" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
             <li><a href="https://www.facebook.com/thornwoodbakery" target="_blank" rel="noopener noreferrer me">Facebook</a></li>
@@ -401,9 +422,13 @@
       </div>
     </footer>
 
+    <!-- Leaflet 1.9.4 map library, loaded with an integrity hash -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+    <!-- Site script: navigation, scroll effects and animations. "defer" lets the page load first -->
     <script src="js/scripts.js" defer></script>
+    <!-- Builds the map and markers -->
     <script src="js/map.js" defer></script>
+    <!-- Form validation and email builder -->
     <script src="js/forms.js" defer></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+/* CSS custom properties: brand colours, typography scale, spacing, shadows and transitions. Changing a value here updates the whole site. */
 :root {
 
   --color-primary:    #C1603C;
@@ -47,6 +48,7 @@
   --transition:      0.25s ease;
 }
 
+/* Reset: removes default browser spacing and uses border-box sizing so widths include padding and borders */
 *,
 *::before,
 *::after {
@@ -55,6 +57,7 @@
   padding: 0;
 }
 
+/* Base styles for the page, headings, links, images and lists */
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -124,6 +127,7 @@ p {
   line-height: var(--line-height-normal);
 }
 
+/* Layout helpers used on every page */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -165,6 +169,7 @@ p {
   color: var(--color-muted);
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -224,6 +229,7 @@ p {
   text-align: center;
 }
 
+/* Header and navigation */
 .site-header {
   background-color: var(--color-dark);
   position: sticky;
@@ -282,6 +288,7 @@ p {
   text-decoration: none;
 }
 
+/* Hamburger button: hidden on desktop and shown by the media queries on small screens */
 .nav-toggle {
   display: none;
   background: none;
@@ -297,6 +304,7 @@ p {
   color: var(--color-primary);
 }
 
+/* Homepage hero banner */
 .hero {
   background-color: var(--color-dark);
   background-image:
@@ -341,6 +349,7 @@ p {
   line-height: var(--line-height-loose);
 }
 
+/* Intro cards under the hero */
 .intro-strip {
   background-color: var(--color-white);
   padding-block: var(--space-md);
@@ -382,6 +391,7 @@ p {
   color: var(--color-muted);
 }
 
+/* Product cards, used on the homepage and the products page */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -441,6 +451,7 @@ p {
   letter-spacing: 0.02em;
 }
 
+/* Call to action banner */
 .cta-banner {
   background-color: var(--color-primary);
   background-image: linear-gradient(135deg, var(--color-primary) 0%, #a34e2c 100%);
@@ -474,6 +485,7 @@ p {
   border-color: var(--color-dark);
 }
 
+/* Banner at the top of the inner pages */
 .page-banner {
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
   padding: 3.5rem var(--space-sm);
@@ -503,6 +515,7 @@ p {
   position: relative;
 }
 
+/* About page: story layout */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -541,6 +554,7 @@ p {
   gap: 0.75rem;
 }
 
+/* Mission, vision and values cards */
 .mission-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -586,6 +600,7 @@ p {
   color: var(--color-muted);
 }
 
+/* Team cards */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -643,6 +658,7 @@ p {
   line-height: 1.6;
 }
 
+/* Contact page: store cards */
 .locations-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -715,6 +731,7 @@ p {
 }
 
 
+/* Forms: layout, fields, focus states and validation styles */
 .form-container {
   max-width: 700px;
 }
@@ -815,10 +832,12 @@ p {
   font-size: var(--font-size-md);
 }
 
+/* Utility class that JavaScript adds or removes to show or hide an element */
 .hidden {
   display: none;
 }
 
+/* Footer */
 .site-footer {
   background-color: var(--color-dark);
   color: var(--color-cream);
@@ -886,6 +905,7 @@ p {
   color: var(--color-border);
 }
 
+/* Responsive breakpoints: tablet (1024px), mobile (768px) and small mobile (480px) */
 @media (max-width: 1024px) {
   :root {
     --font-size-3xl: 2.5rem;
@@ -1049,6 +1069,7 @@ img[srcset] {
   height: auto;
 }
 
+/* Accessibility: visible focus ring for keyboard users, plus link and nav pseudo-class states */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -1071,6 +1092,7 @@ a:active {
   color: var(--color-primary);
 }
 
+/* Part 3 animations: scroll reveal (the class is added by scripts.js) and the hero fade-in */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1109,6 +1131,7 @@ a:active {
   }
 }
 
+/* Header shadow once the page has been scrolled */
 .site-header {
   transition: box-shadow var(--transition);
 }
@@ -1117,6 +1140,7 @@ a:active {
   box-shadow: var(--shadow);
 }
 
+/* Back to top button, created by scripts.js */
 .back-to-top {
   position: fixed;
   right: 1.25rem;
@@ -1148,6 +1172,7 @@ a:active {
   background-color: var(--color-dark);
 }
 
+/* Extra button styles */
 .btn-outline {
   background-color: transparent;
   border: 2px solid var(--color-primary);
@@ -1164,6 +1189,7 @@ a:active {
   font-size: var(--font-size-sm);
 }
 
+/* Gallery (about page) */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1201,6 +1227,7 @@ a:active {
   color: var(--color-muted);
 }
 
+/* Lightbox overlay, built by interactive.js */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1275,6 +1302,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* FAQ accordion (enquiry page) */
 .accordion {
   max-width: 760px;
   margin: 0 auto;
@@ -1335,6 +1363,7 @@ body.no-scroll {
   display: none;
 }
 
+/* Leaflet map (contact page) */
 .map-canvas {
   position: relative;
   z-index: 0;
@@ -1353,6 +1382,7 @@ body.no-scroll {
   margin-top: var(--space-sm);
 }
 
+/* Part 3 responsive rules for the gallery, map and lightbox */
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1381,6 +1411,7 @@ body.no-scroll {
   }
 }
 
+/* Switches animations off for visitors whose system asks for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1391,6 +1422,7 @@ body.no-scroll {
   }
 }
 
+/* Products page: search box, sort menu, category tabs and result count */
 .product-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -1494,6 +1526,7 @@ body.no-scroll {
   margin-top: var(--space-xs);
 }
 
+/* Product details modal, built by products.js */
 .modal {
   position: fixed;
   inset: 0;
@@ -1583,6 +1616,7 @@ body.no-scroll {
   }
 }
 
+/* Honeypot field: hidden from people, but bots fill it in so the form can ignore them */
 .hp-field {
   position: absolute;
   left: -9999px;
@@ -1591,6 +1625,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* Form helpers: character counter, response panel, error panel and email preview */
 .char-count {
   display: block;
   margin-top: 0.25rem;
@@ -1672,6 +1707,7 @@ body.no-scroll {
   cursor: wait;
 }
 
+/* Hidden visually but still read by screen readers and search engines */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1684,6 +1720,7 @@ body.no-scroll {
   border: 0;
 }
 
+/* Breadcrumb navigation inside the page banners */
 .breadcrumb {
   margin-bottom: var(--space-xs);
   font-size: var(--font-size-sm);
@@ -1712,6 +1749,7 @@ body.no-scroll {
   color: var(--color-white);
 }
 
+/* Footer social links */
 .social-links {
   display: flex;
   gap: var(--space-sm);

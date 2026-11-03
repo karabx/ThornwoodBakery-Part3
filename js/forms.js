@@ -1,13 +1,16 @@
+// Validation patterns
 const NAME_PATTERN = /^[A-Za-z\u00C0-\u024F][A-Za-z\u00C0-\u024F' -]{1,59}$/;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_PATTERN = /^(\+27|0)[1-9]\d{8}$/;
 const BUDGET_PATTERN = /^\d+(\.\d{1,2})?$/;
+// Where contact form emails go. The nearest location chooses between the two store addresses
 const DEFAULT_RECIPIENT = "melville@thornwoodbakery.co.za";
 const LOCATION_RECIPIENTS = {
   melville: "melville@thornwoodbakery.co.za",
   greenside: "greenside@thornwoodbakery.co.za"
 };
 
+// Date helpers. Dates are built from local parts to avoid time zone shifts
 function pad(number) {
   return String(number).padStart(2, "0");
 }
@@ -16,6 +19,7 @@ function toISODate(date) {
   return date.getFullYear() + "-" + pad(date.getMonth() + 1) + "-" + pad(date.getDate());
 }
 
+// Turns a YYYY-MM-DD value into a Date and returns null for impossible dates such as 31 February
 function parseISODate(value) {
   const parts = value.split("-").map(Number);
   const date = new Date(parts[0], parts[1] - 1, parts[2]);
@@ -35,6 +39,7 @@ function addDays(date, days) {
   return copy;
 }
 
+// Counts Monday to Friday days between two dates, used for the 5 business day lead time
 function businessDaysBetween(start, end) {
   let count = 0;
   const cursor = new Date(start);
@@ -46,10 +51,12 @@ function businessDaysBetween(start, end) {
   return count;
 }
 
+// Removes spaces, hyphens and brackets so phone numbers can be checked against one pattern
 function cleanPhone(value) {
   return value.replace(/[\s\-()]/g, "");
 }
 
+// Small helper for creating elements with text. textContent keeps user input safe
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -57,6 +64,7 @@ function el(tag, className, text) {
   return node;
 }
 
+// Show or clear an error: red border, aria-invalid and the message under the field
 function showError(field, errorEl, message) {
   field.classList.add("invalid");
   field.setAttribute("aria-invalid", "true");
@@ -69,6 +77,7 @@ function clearError(field, errorEl) {
   errorEl.textContent = "";
 }
 
+// Validates one field with its rule and shows the result
 function checkField(def) {
   const field = document.getElementById(def.id);
   const errorEl = document.getElementById(def.id + "Error");
@@ -81,6 +90,7 @@ function checkField(def) {
   return !message;
 }
 
+// Validate on blur. Once a field has an error it is re-checked as the user types so the message clears
 function bindValidation(defs) {
   defs.forEach(function (def) {
     const field = document.getElementById(def.id);
@@ -95,6 +105,7 @@ function bindValidation(defs) {
   });
 }
 
+// Validates every field on submit and moves focus to the first problem
 function validateAll(defs) {
   let firstInvalid = null;
   defs.forEach(function (def) {
@@ -106,6 +117,7 @@ function validateAll(defs) {
   return !firstInvalid;
 }
 
+// Live x / 1000 counter under a textarea
 function addCharCounter(field, max) {
   const counter = el("span", "char-count", "0 / " + max);
   field.parentNode.insertBefore(counter, field.nextSibling);
@@ -116,6 +128,7 @@ function addCharCounter(field, max) {
   update();
 }
 
+// Rules shared by both forms
 function validateName(value) {
   if (!value) return "Please enter your full name.";
   if (!NAME_PATTERN.test(value)) return "Use letters only, between 2 and 60 characters.";
@@ -141,9 +154,11 @@ function validateMessage(value, emptyMessage) {
   return "";
 }
 
+// ENQUIRY FORM (enquiry.html)
 const enquiryForm = document.getElementById("enquiryForm");
 
 if (enquiryForm) {
+  // Prices and labels used to build the quick quote
   const CAKE_BASE_PRICES = { "birthday-cake": 450, "wedding-cake": 1800, "baby-shower-cake": 550, "other-cake": 500 };
   const SIZE_MULTIPLIERS = { "10-15": 1, "20-25": 1.4, "30-40": 1.9, "50+": 2.8 };
   const TYPE_LABELS = {
@@ -154,11 +169,13 @@ if (enquiryForm) {
     "product-enquiry": "product enquiry"
   };
 
+  // The date picker only allows tomorrow up to 12 months ahead
   const collectionDate = document.getElementById("collectionDate");
   const tomorrow = addDays(startOfToday(), 1);
   collectionDate.min = toISODate(tomorrow);
   collectionDate.max = toISODate(addDays(startOfToday(), 365));
 
+  // Validation rules for each enquiry field
   const enquiryDefs = [
     { id: "fullName", validate: validateName },
     { id: "email", validate: validateEmail },
@@ -202,6 +219,7 @@ if (enquiryForm) {
   bindValidation(enquiryDefs);
   addCharCounter(document.getElementById("message"), 1000);
 
+  // Links from the product modal (enquiry.html?product=...) pre-select the enquiry type and message
   const params = new URLSearchParams(window.location.search);
   const productParam = params.get("product");
   if (productParam && /^[a-z0-9-]{1,50}$/.test(productParam)) {
@@ -231,6 +249,7 @@ if (enquiryForm) {
     return "R" + String(number).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   }
 
+  // Builds the cost, budget and availability lines shown after submitting
   function buildQuote(values) {
     const type = values.enquiryType;
     const collection = parseISODate(values.collectionDate);
@@ -278,6 +297,7 @@ if (enquiryForm) {
     return lines;
   }
 
+  // Replaces the form with the response panel: reference number, quote lines and next steps
   function showResult(values) {
     const reference = "TB-" + Date.now().toString(36).toUpperCase();
     const firstName = values.fullName.split(/\s+/)[0];
@@ -304,6 +324,7 @@ if (enquiryForm) {
     submitButton.textContent = sending ? "Sending..." : "Submit Enquiry";
   }
 
+  // Stop the normal page reload, ignore bots, validate, then send the data with fetch (AJAX)
   enquiryForm.addEventListener("submit", async function (event) {
     event.preventDefault();
     formError.classList.add("hidden");
@@ -317,6 +338,7 @@ if (enquiryForm) {
 
     setSending(true);
     try {
+      // Netlify Forms expects the fields as URL-encoded data posted to the form action
       const response = await fetch(enquiryForm.getAttribute("action"), {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -324,6 +346,7 @@ if (enquiryForm) {
       });
       if (!response.ok) throw new Error("Request failed with status " + response.status);
       showResult(values);
+    // Network or server problem: show an error message so the user can try again
     } catch (error) {
       formError.textContent = "Sorry, we could not send your enquiry just now. Please try again, or call us on 011 555 1234.";
       formError.classList.remove("hidden");
@@ -334,6 +357,7 @@ if (enquiryForm) {
   });
 }
 
+// CONTACT FORM (contact.html)
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
@@ -368,6 +392,7 @@ if (contactForm) {
 
   const preview = document.getElementById("contactSuccess");
 
+  // Builds the email: recipient from the nearest location, subject from the message type and body from the fields
   function compileEmail(values) {
     const recipient = LOCATION_RECIPIENTS[values.preferredLocation] || DEFAULT_RECIPIENT;
     const subject = "[Website] " + values.messageTypeLabel + ": " + values.subject;
@@ -385,6 +410,7 @@ if (contactForm) {
     return { recipient: recipient, subject: subject, body: bodyLines.join("\n") };
   }
 
+  // Shows the email preview with buttons to open it in the email app, copy it or edit it
   function showPreview(email) {
     preview.replaceChildren();
     preview.appendChild(el("h3", "", "Your email is ready"));
@@ -398,6 +424,7 @@ if (contactForm) {
 
     const actions = el("div", "preview-actions");
     const send = el("a", "btn btn-primary", "Open in my email app");
+    // mailto link with the subject and body encoded
     send.href = "mailto:" + email.recipient + "?subject=" + encodeURIComponent(email.subject) + "&body=" + encodeURIComponent(email.body);
     actions.appendChild(send);
 
@@ -430,6 +457,7 @@ if (contactForm) {
     preview.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
+  // Validate, then compile the email and show the preview
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
     if (contactForm.elements["bot-field"] && contactForm.elements["bot-field"].value) return;

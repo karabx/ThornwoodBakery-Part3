@@ -4,12 +4,15 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO: unique title and meta description for this page -->
     <title>Artisan Bakery in Melville, Johannesburg | Thornwood Bakery</title>
     <meta name="description" content="Thornwood Bakery bakes artisan sourdough, butter croissants and custom cakes fresh daily in Melville and Greenside, Johannesburg. Order a cake today." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#C1603C" />
+    <!-- Canonical link: tells search engines the preferred address of this page -->
     <link rel="canonical" href="https://thornwoodbakery.netlify.app/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%9E%3C/text%3E%3C/svg%3E" />
+    <!-- Open Graph and Twitter tags: control how the page looks when it is shared on social media -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Thornwood Bakery" />
     <meta property="og:locale" content="en_ZA" />
@@ -23,7 +26,9 @@
     <meta name="twitter:description" content="Thornwood Bakery bakes artisan sourdough, butter croissants and custom cakes fresh daily in Melville and Greenside, Johannesburg. Order a cake today." />
     <meta name="twitter:image" content="https://thornwoodbakery.netlify.app/images/thornwood-bakery-social-share.png" />
 
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Structured data (JSON-LD): helps search engines understand the business -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,6 +132,7 @@
   </head>
   <body>
 
+    <!-- HEADER AND NAVIGATION -->
     <header class="site-header">
       <div class="container header-inner">
 
@@ -134,10 +140,12 @@
           <span class="logo-icon">🍞</span> Thornwood Bakery
         </a>
 
+        <!-- Hamburger button, only visible on mobile (see scripts.js) -->
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           &#9776;
         </button>
 
+        <!-- Main navigation: the current page has the "active" class -->
         <nav class="main-nav" id="mainNav">
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -150,8 +158,10 @@
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main>
 
+      <!-- HERO: main banner with the keyword h1 and calls to action -->
       <section class="hero">
         <div class="hero-overlay">
           <div class="container hero-content">
@@ -167,6 +177,7 @@
         </div>
       </section>
 
+      <!-- INTRO STRIP: three reasons to choose the bakery -->
       <section class="intro-strip">
         <div class="container intro-grid">
           <h2 class="visually-hidden">Why customers choose Thornwood Bakery</h2>
@@ -188,6 +199,7 @@
         </div>
       </section>
 
+      <!-- FEATURED PRODUCTS: top sellers with a link to the full range -->
       <section class="featured section-padding">
         <div class="container">
           <h2 class="section-title">Our Most Loved Products</h2>
@@ -225,6 +237,7 @@
         </div>
       </section>
 
+      <!-- CALL TO ACTION: sends visitors to the enquiry form -->
       <section class="cta-banner">
         <div class="container cta-content">
           <h2>Planning a Special Occasion?</h2>
@@ -238,11 +251,13 @@
 
     </main>
 
+    <!-- FOOTER: quick links, trading hours and social links -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-brand">
           <p class="logo">🍞 Thornwood Bakery</p>
           <p>Handcrafted in Melville, Johannesburg since 2015.</p>
+        <!-- Social media links -->
         <ul class="social-links" aria-label="Thornwood Bakery on social media">
             <li><a href="https://www.instagram.com/thornwoodbakery" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
             <li><a href="https://www.facebook.com/thornwoodbakery" target="_blank" rel="noopener noreferrer me">Facebook</a></li>
@@ -273,6 +288,7 @@
       </div>
     </footer>
 
+    <!-- Site script: navigation, scroll effects and animations. "defer" lets the page load first -->
     <script src="js/scripts.js" defer></script>
   </body>
 </html>

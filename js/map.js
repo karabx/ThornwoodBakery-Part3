@@ -1,7 +1,9 @@
 (function () {
+  // Stop if the page has no map or Leaflet failed to load
   const mapEl = document.getElementById("map");
   if (!mapEl || typeof L === "undefined") return;
 
+  // Store details used for the markers and popups
   const stores = [
     {
       key: "melville",
@@ -23,13 +25,16 @@
     }
   ];
 
+  // Create the map. Scroll wheel zoom is off so the page can still scroll past it
   const map = L.map(mapEl, { scrollWheelZoom: false }).setView([-26.158, 28.0107], 12);
 
+  // OpenStreetMap tiles. The attribution is required by the OpenStreetMap licence
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
+  // Popups are built with DOM methods and textContent for safety
   function buildPopup(store) {
     const wrap = document.createElement("div");
     const title = document.createElement("strong");
@@ -45,6 +50,7 @@
     return wrap;
   }
 
+  // Add a marker for each store and remember it by key so the buttons can find it
   const markers = {};
 
   stores.forEach(function (store) {
@@ -53,6 +59,7 @@
     markers[store.key] = { marker: marker, store: store };
   });
 
+  // Zoom the map so both stores are visible
   map.fitBounds(
     stores.map(function (store) {
       return [store.lat, store.lng];
@@ -60,6 +67,7 @@
     { padding: [60, 60] }
   );
 
+  // The Show on map buttons fly to the chosen store and open its popup
   document.querySelectorAll("[data-location]").forEach(function (button) {
     button.addEventListener("click", function () {
       const entry = markers[button.dataset.location];
@@ -70,6 +78,7 @@
     });
   });
 
+  // Scroll wheel zoom is only enabled while the map has focus
   map.on("focus", function () {
     map.scrollWheelZoom.enable();
   });

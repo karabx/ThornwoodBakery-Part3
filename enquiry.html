@@ -4,12 +4,15 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO: unique title and meta description for this page -->
     <title>Custom Cake Enquiry in Melville | Thornwood Bakery</title>
     <meta name="description" content="Request a quote for a custom birthday, wedding or baby shower cake from Thornwood Bakery in Melville, Johannesburg. We reply within 24 hours." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#C1603C" />
+    <!-- Canonical link: tells search engines the preferred address of this page -->
     <link rel="canonical" href="https://thornwoodbakery.netlify.app/enquiry.html" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%9E%3C/text%3E%3C/svg%3E" />
+    <!-- Open Graph and Twitter tags: control how the page looks when it is shared on social media -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Thornwood Bakery" />
     <meta property="og:locale" content="en_ZA" />
@@ -22,9 +25,12 @@
     <meta name="twitter:title" content="Custom Cake Enquiry in Melville | Thornwood Bakery" />
     <meta name="twitter:description" content="Request a quote for a custom birthday, wedding or baby shower cake from Thornwood Bakery in Melville, Johannesburg. We reply within 24 hours." />
     <meta name="twitter:image" content="https://thornwoodbakery.netlify.app/images/thornwood-bakery-social-share.png" />
+    <!-- Preconnect starts the connection to the CDN early so the library loads faster -->
     <link rel="preconnect" href="https://code.jquery.com" crossorigin />
 
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Structured data (JSON-LD): helps search engines understand the business -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,16 +54,19 @@
   </head>
   <body>
 
+    <!-- HEADER AND NAVIGATION -->
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="logo">
           <span class="logo-icon">🍞</span> Thornwood Bakery
         </a>
 
+        <!-- Hamburger button, only visible on mobile (see scripts.js) -->
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           &#9776;
         </button>
 
+        <!-- Main navigation: the current page has the "active" class -->
         <nav class="main-nav" id="mainNav">
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link">Home</a></li>
@@ -70,10 +79,13 @@
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main>
 
+      <!-- PAGE BANNER -->
       <section class="page-banner">
         <div class="container">
+          <!-- Breadcrumbs: show visitors and search engines where this page sits -->
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <ol>
               <li><a href="index.html">Home</a></li>
@@ -98,13 +110,16 @@
             <p>Not sure what to order? Look through our <a href="products.html">breads, pastries and cakes</a> first, or <a href="contact.html">contact us</a> if you would like to talk it through.</p>
           </div>
 
+          <!-- ENQUIRY FORM: a Netlify form submitted with AJAX by forms.js. The action is the URL the data is posted to -->
           <form id="enquiryForm" class="bakery-form" name="enquiry" action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
             <input type="hidden" name="form-name" value="enquiry" />
+            <!-- Honeypot field for spam bots. People never see it -->
             <p class="hp-field" aria-hidden="true">
               <label>Leave this field empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
             </p>
 
             <fieldset>
+              <!-- Contact details -->
               <legend>Your Details</legend>
 
               <div class="form-group">
@@ -145,6 +160,7 @@
             </fieldset>
 
             <fieldset>
+              <!-- Order details -->
               <legend>Order Details</legend>
 
               <div class="form-group">
@@ -223,14 +239,17 @@
               <button type="submit" class="btn btn-primary btn-full">Submit Enquiry</button>
             </div>
 
+            <!-- Error message, shown if the AJAX request fails -->
             <div id="formError" class="form-error hidden" role="alert"></div>
 
+            <!-- Response panel filled in by forms.js after a successful submission (cost and availability) -->
             <div id="formSuccess" class="form-result hidden" tabindex="-1" aria-live="polite"></div>
 
           </form>
         </div>
       </section>
 
+      <!-- FAQ ACCORDION: each question is a button that opens its answer (interactive.js) -->
       <section class="section-padding bg-light">
         <div class="container">
           <h2 class="section-title">Frequently Asked Questions</h2>
@@ -282,11 +301,13 @@
 
     </main>
 
+    <!-- FOOTER: quick links, trading hours and social links -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-brand">
           <p class="logo">🍞 Thornwood Bakery</p>
           <p>Handcrafted in Melville, Johannesburg since 2015.</p>
+        <!-- Social media links -->
         <ul class="social-links" aria-label="Thornwood Bakery on social media">
             <li><a href="https://www.instagram.com/thornwoodbakery" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
             <li><a href="https://www.facebook.com/thornwoodbakery" target="_blank" rel="noopener noreferrer me">Facebook</a></li>
@@ -317,9 +338,13 @@
       </div>
     </footer>
 
+    <!-- jQuery 3.7.1. The integrity hash makes the browser reject the file if it was changed -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
+    <!-- Site script: navigation, scroll effects and animations. "defer" lets the page load first -->
     <script src="js/scripts.js" defer></script>
+    <!-- Accordion and lightbox (jQuery) -->
     <script src="js/interactive.js" defer></script>
+    <!-- Form validation and AJAX submission -->
     <script src="js/forms.js" defer></script>
   </body>
 </html>
